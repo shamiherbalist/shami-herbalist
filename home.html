@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shami Herbalist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideIn { from { transform: translateX(-20px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+        .animate-fadeIn { animation: fadeIn 1s ease-in-out; }
+        .animate-slideIn { animation: slideIn 1s ease-in-out 0.3s forwards; opacity: 0; }
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .logo-img {
+            height: 60px;
+            width: 60px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+        .hero-section {
+            position: relative;
+            height: 34rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
+        }
+        .hero-section img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            filter: brightness(80%);
+        }
+        .hero-content {
+            text-align: center;
+            color: white;
+            padding: 2rem;
+            max-width: 90%;
+            border-radius: 1rem;
+            background: rgba(0, 0, 0, 0.6);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        .hero-content h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+        }
+        .hero-content a {
+            display: inline-flex;
+            align-items: center;
+            background-color: #10b981;
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-size: 1.125rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        .hero-content a:hover {
+            background-color: #059669;
+            transform: scale(1.05);
+        }
+        @media (min-width: 640px) {
+            .hero-content h2 { font-size: 4rem; }
+            .hero-content p { font-size: 1.5rem; }
+            .hero-section { height: 40rem; }
+        }
+        @media (max-width: 640px) {
+            .logo-img { height: 48px; width: 48px; }
+            .hero-section { height: 28rem; }
+            .hero-content { padding: 1.5rem; }
+            .hero-content h2 { font-size: 2.25rem; }
+            .hero-content p { font-size: 1rem; }
+            .hero-content a { padding: 0.5rem 1.5rem; font-size: 1rem; }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Header -->
+    <header class="bg-green-600 text-white sticky top-0 z-50 shadow-md">
+        <nav class="container mx-auto flex items-center justify-between p-4">
+            <img src="logo.png" alt="Shami Herbalist Logo" class="logo-img">
+            <ul class="hidden md:flex space-x-6">
+                <li><a href="#home" class="hover:text-green-200">Home</a></li>
+                <li><a href="#products" class="hover:text-green-200">Products</a></li>
+                <li><a href="#about" class="hover:text-green-200">About</a></li>
+                <li><a href="#contact" class="hover:text-green-200">Contact</a></li>
+            </ul>
+            <div class="flex items-center space-x-4">
+                <button class="md:hidden focus:outline-none" onclick="toggleMenu()">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden bg-green-700 md:hidden">
+            <ul class="flex flex-col items-center space-y-4 py-4">
+                <li><a href="#home" class="hover:text-green-200">Home</a></li>
+                <li><a href="#products" class="hover:text-green-200">Products</a></li>
+                <li><a href="#about" class="hover:text-green-200">About</a></li>
+                <li><a href="#contact" class="hover:text-green-200">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <img src="ad2.jpg" alt="Herbal Banner">
+        <div class="hero-content">
+            <h2 class="animate-fadeIn">Purely Natural Herbal Products</h2>
+            <p class="animate-slideIn">Experience the power of nature with our organic range.</p>
+            <a href="#products" class="animate-slideIn">
+                <i class="fas fa-leaf mr-2"></i> Shop Now
+            </a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="container mx-auto py-12">
+        <h2 class="text-3xl font-bold text-center mb-8">Our Herbal Products</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <!-- Product Card 1 -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform">
+                <img src="https://images.unsplash.com/photo-1603394630852-2951e7220f0f?auto=format&fit=crop&w=600" alt="Herbal Tea" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2">Organic Herbal Tea</h3>
+                    <p class="text-gray-600 mb-4">A soothing blend of natural herbs for relaxation.</p>
+                    <p class="text-green-600 font-bold">PKR.12.99</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="https://wa.me/923295805381?text=I'd like to order Organic Herbal Tea" target="_blank" class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded flex items-center">
+                            <i class="fab fa-whatsapp mr-2"></i> Order via WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Product Card 2 -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform">
+                <img src="https://images.unsplash.com/photo-1621435109296-1c90ae093e66?auto=format&fit=crop&w=600" alt="Herbal Oil" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2">Pure Essential Oil</h3>
+                    <p class="text-gray-600 mb-4">100% natural oil for aromatherapy and skincare.</p>
+                    <p class="text-green-600 font-bold">PKR19.99</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="https://wa.me/923295805381?text=I'd like to order Pure Essential Oil" target="_blank" class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded flex items-center">
+                            <i class="fab fa-whatsapp mr-2"></i> Order via WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="bg-green-50 py-12">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-8">About Shami Herbalist</h2>
+            <p class="text-lg text-gray-700 max-w-2xl mx-auto">We are dedicated to bringing you the finest organic herbal products, crafted with care to promote wellness and sustainability. Our products are sourced from nature’s best ingredients, ensuring purity and quality.</p>
+        </div>
+    </section>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/923295805381?text=Hello%20Shami%20Herbalist!%20I%20have%20a%20question." target="_blank" class="whatsapp-float">
+        <div class="bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600">
+            <i class="fab fa-whatsapp text-2xl"></i>
+        </div>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-green-600 text-white py-6">
+        <div class="container mx-auto text-center">
+            <p class="text-lg mb-4">Contact Us</p>
+            <p class="text-sm mb-2">Email: shamiherbalist@gmail.com</p>
+            <p class="text-sm mb-4 flex justify-center items-center">
+                Phone: 
+                <a href="https://wa.me/923295805381" target="_blank" class="flex items-center ml-2">
+                    0329-5805381 
+                    <i class="fab fa-whatsapp text-white ml-2"></i>
+                </a>
+            </p>
+            <div class="flex justify-center space-x-6">
+                <a href="https://www.instagram.com/shamiherbalist?igsh=MWN5a2hyaHp6NzlrOQ==" target="_blank" class="hover:text-green-200">
+                    <i class="fab fa-instagram text-2xl"></i>
+                </a>
+                <a href="https://www.facebook.com/share/1ATUmVBhY3/" target="_blank" class="hover:text-green-200">
+                    <i class="fab fa-facebook-f text-2xl"></i>
+                </a>
+            </div>
+            <p class="mt-4">© 2025 Shami Herbalist. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
